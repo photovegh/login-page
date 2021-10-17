@@ -1,11 +1,15 @@
-import express from 'express';
-//import bodyParser from "body-parser";
-var app = express();
-app.set('port', process.env.PORT || 9999);
-//app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World! 😋')
+import express from 'express';
+import bodyParser from "body-parser";
+import fs from "fs";
+const app = express();
+
+app.use(bodyParser.json());
+app.use(express.static("public"))
+app.set('port', process.env.PORT || 9999);
+
+  app.get('/', (req, res) => {
+    res.sendFile('i:/test/login-page/views/index.html');
   })
 
 app.listen(app.get('port'), function () {
