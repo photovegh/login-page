@@ -1,15 +1,22 @@
+//import path from 'path';
 
-import express from 'express';
-import bodyParser from "body-parser";
-import fs from "fs";
+const express = require('express');
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const path = require('path')
 const app = express();
-
+path
 app.use(bodyParser.json());
 app.use(express.static("public"))
+app.use(express.static("public/js"))
+app.use(express.static("public/css"))
+app.use(express.static("public/img"))
 app.set('port', process.env.PORT || 9999);
 
   app.get('/', (req, res) => {
-    res.sendFile('i:/test/login-page/views/index.html');
+    res.sendFile(path.join(__dirname, '/views/index.html'));
+    //res.sendFile('i:/test/login-page/views/index.html');
+    //res.send(console.log(path.join(__dirname, '/views/index.html')));
   })
 
 app.listen(app.get('port'), function () {

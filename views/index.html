@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
@@ -36,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" placeholder="Username" class="form-control" value="">
+                        <input type="text" id="username"  placeholder="Username" class="form-control" value="">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -45,12 +46,23 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal">Login</button>
+                    <button class="btn btn-primary" data-dismiss="modal" onclick="myFunction()">Login</button>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="script.js"></script>
+    <!-- 
+        <script src="i:/test/login-page/public/js/script.js "></script>
+        <script src="path.join(__dirname, '/public/js/script.js'"></script>
+ -->
+ <!-- 
+ <script>
+    const myFunction = () => {
+    console.log('script.js is ready');
+};
+ </script>
+ -->
 </body>
 
 </html>
