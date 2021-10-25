@@ -21,7 +21,11 @@
         <br>
         <img src="https://photovegh.synology.me/img/dragon_ok.jpg" alt="" style="width: 10%;">
         <br><br><br>
-        <button class="btn btn-primary" data-target="#loginModal" data-toggle="modal">Mixed Login</button>
+        <button class="btn btn-primary" data-target="#loginModal" data-toggle="modal" onclick="mixedLogin()">Mixed
+            Login</button>
+
+        <button class="btn btn-outline-danger" onclick="personGet()">GET</button>
+
         <br><br>
 
         <button class="btn btn-outline-danger" onclick="veghSoft()">Return</button>
@@ -37,12 +41,12 @@
     </div>
 
     <!-- RETURN -->
-    <script>
+    <!--    <script>
         function veghSoft() {
             console.log('OK');
             window.location = 'http://www.veghsoft.eu'
         }
-    </script>
+    </script> -->
 
     <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
@@ -65,7 +69,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" onclick="myFunction()">Login</button>
+                    <button class="btn btn-primary" data-dismiss="modal" onclick="modalLogin()">Login</button>
                 </div>
             </div>
         </div>
@@ -81,6 +85,13 @@
     console.log('script.js is ready');
 };
  </script>
+-->
+    <!-- 
+<script>
+   const loginWrite = () => {
+   console.log('loginWrite is ready');
+};
+</script>
  -->
 </body>
 
