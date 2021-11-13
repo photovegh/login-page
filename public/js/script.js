@@ -1,21 +1,104 @@
+const state = {
+    persons: [],
+};
+
+/* 
+async function sendMongoDB() {
+    const response = await fetch("/person");
+    document.getElementById("personsData").innerHTML = "";
+    let persons;
+    state.persons = await response.json();
+    //state.persons = persons;
+    renderPersons();
+}
+ */
+
+//document.getElementById("modalLogin()").onsubmit = async function () {
+async function sendMongoDB() {
+    console.log("sendmongodb 1");
+
+    //eddig jutottam el !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    await fetch("/person", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+            userName: "Jane Doe",
+            email: "Jane@test.com",
+            message: "Hmmm",
+            history: "harem",
+        }),
+    });
+    console.log("sendmongodb 2");
+}
+
+//window.onload = fetchAndRenderPersons();
+async function fetchAndRenderPersons() {
+    const response = await fetch("/person");
+    document.getElementById("personsData").innerHTML = "";
+    let persons;
+    state.persons = await response.json();
+    //state.persons = persons;
+    renderPersons();
+}
+function renderPersons() {
+    //let personsHTML = "";
+    let personsHTML = "";
+    for (const person of state.persons) {
+        personsHTML += `
+    <tr>
+    <td>${person.userName}</td>
+    <td>${person.email}</td>
+    <td>${person.message}</td>
+    <td>${person.history}</td>
+    </tr>
+    `;
+    }
+    console.log(state.persons[0]);
+    document.getElementById("personsData").innerHTML = personsHTML;
+}
+
+//***************************old code *****************/
+const personGet = () => {
+    console.log(
+        "GET personGet function OK !!!!! *** index-login / routing ***"
+    );
+
+    window.onload = fetchAndRenderPersons();
+
+    //window.location = "http://64.227.121.167:9999/person";
+    //window.onload
+    /* 
+  http://64.227.121.167:9999/person;
+  const data = http://64.227.121.167:9999/person;
+  console.log(data);
+  */
+
+    console.log(
+        "GET personGet function OK !!!!! *** index-login / routing a window.location után***"
+    );
+};
+//console.log(person);
+
 const modalLogin = () => {
-  console.log("modalLogin is ready *** modal OK + MongoDB ***");
+    console.log("BUTTON modalLogin is ready *** modal OK + MongoDB ***");
+    let mLogin = document.getElementById("userName").value;
+    console.log(mLogin);
+    let mEmail = document.getElementById("email").value;
+    console.log(mEmail);
+    let mMessage = document.getElementById("message").value;
+    console.log(mMessage);
+    let mHistory = document.getElementById("history").value;
+    console.log(mHistory);
 };
 
 const mixedLogin = () => {
-  console.log("mixedLogin is ready !!! js FOLDER !!!");
+    console.log("BUTTON mixedLogin is ready !!! js FOLDER !!!");
 };
 
 function veghSoft() {
-  console.log("OK");
-  window.location = "http://www.veghsoft.eu";
-}
-
-const personGet = () => {
-  console.log("GET personGet function OK !!!!!");
-  window.location = "http://64.227.121.167:9999/person";
-};
-
-const formaz = (person) => {
-  document.body = (person + "Hello World")
+    console.log("OK");
+    window.location = "http://www.veghsoft.eu";
 }

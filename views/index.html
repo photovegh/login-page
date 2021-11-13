@@ -10,43 +10,64 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
+
     <!-- LOGIN MODAL TRIGGER -->
     <div class="container" style="text-align: center;">
-        <h1>🌎 International site 🌍</h1>
-        <h1>🌌</h1>
+        <h1>🌌 International site</h1>
         <br>
-        <img src="https://photovegh.synology.me/img/dragon_ok.jpg" alt="" style="width: 10%;">
-        <br><br><br>
+        <img src="https://photovegh.synology.me/img/dragon_ok.jpg" alt="" style="width: 9%;">
+        <br><br>
+
         <button class="btn btn-primary" data-target="#loginModal" data-toggle="modal" onclick="mixedLogin()">Mixed
             Login</button>
 
-        <button class="btn btn-outline-danger" onclick="personGet()">GET</button>
-
+        <button class="btn btn-outline-danger" onclick="fetchAndRenderPersons()">GET</button>
         <br><br>
 
         <button class="btn btn-outline-danger" onclick="veghSoft()">Return</button>
 
-        <p style="margin-top: 3%; color: royalblue;">This responsive page:</p>
+        <p style="margin-top: 2%; color: royalblue;">This responsive page:</p>
         <p>Web fronend site - nethely.hu</p>
         <p>Web backend site routing - Didigital Ocean Virtual Privat Server with NodeJS + Express (Frankfurt)</p>
-        <p>Database - Atlas MongoDB</p>
+        <p>Database - Atlas MongoDB (Worldwide)</p>
         <p>Logo - Synology NAS (home)</p>
-        <p>Image - Canva cloud (Worldwide)</p>
-        <img src="https://media-private.canva.com/8iWDk/MAEtMB8iWDk/1/s.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJWF6QO3UH4PAAJ6Q%2F20211019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211019T031221Z&X-Amz-Expires=78369&X-Amz-Signature=020ff4ccdb6970be58166ef06836ebeebf3f803d6a33fedf30efaea00c3e9b15&X-Amz-SignedHeaders=host&response-expires=Wed%2C%2020%20Oct%202021%2000%3A58%3A30%20GMT"
-            alt="" style="width: 21%;  border: 1px solid #ddd;  border-radius: 4px; padding: 5px;">
+        <p>Image - 500px (Toronto, Ontario, Kanada)</p>
+        <img src='https://drscdn.500px.org/photo/1039782829/m%3D900/v2?sig=9b05f3692b10f71c8af2d9e34079598794f7318011de2e093ba88ee0a7bc4c73'
+            alt="Portrait_resize_sq by Végh Tibor on 500px.com"
+            style="width: 9%;  border: 1px solid #ddd;  border-radius: 4px; padding: 5px;">
     </div>
 
-    <!-- RETURN -->
-    <!--    <script>
-        function veghSoft() {
-            console.log('OK');
-            window.location = 'http://www.veghsoft.eu'
-        }
-    </script> -->
+    <!-- <div id="personsData"></div> -->
+    <div class="container">
+        <h2>ATLAS MongoDB Database test</h2>
+        <p>The following data is for testing purposes only!</p>
+        <table class="table table-striped">
+            <thead>
+
+                <tr>
+                    <th>User name</th>
+                    <th>E-mail</th>
+                    <th>Message</th>
+                    <th>History</th>
+                </tr>
+            </thead>
+
+            <tbody id="personsData">
+                <!-- 
+                <tr>
+                    <td>something</td>
+                    <td>something</td>
+                    <td>something</td>
+                </tr>
+ -->
+
+            </tbody>
+        </table>
+    </div>
+
 
     <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
@@ -59,40 +80,33 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="Username" class="form-control" value="">
+                        <label for="userName">Username</label>
+                        <input type="text" id="userName" placeholder="Username" class="form-control" value="John Doe">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" placeholder="Password" class="form-control" value="">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Email" class="form-control" value="test@test.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <input type="message" id="message" placeholder="Message" class="form-control"
+                            value="This is message 01">
+                    </div>
+                    <div class="form-group">
+                        <label for="history">Histrory</label>
+                        <input type="history" id="history" placeholder="Histrory" class="form-control"
+                            value="This is history 01">
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" onclick="modalLogin()">Login</button>
+                    <!-- <button class="btn btn-primary" data-dismiss="modal" onclick="modalLogin()">Login</button> -->
+                    <button class="btn btn-primary" data-dismiss="modal" onclick="sendMongoDB()">Login</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <!-- 
-        <script src="i:/test/login-page/public/js/script.js "></script>
-        <script src="path.join(__dirname, '/public/js/script.js'"></script>
- -->
-    <!-- 
- <script>
-    const myFunction = () => {
-    console.log('script.js is ready');
-};
- </script>
--->
-    <!-- 
-<script>
-   const loginWrite = () => {
-   console.log('loginWrite is ready');
-};
-</script>
- -->
 </body>
 
 </html>
