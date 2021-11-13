@@ -13,40 +13,32 @@
 </head>
 
 <body>
-
     <!-- LOGIN MODAL TRIGGER -->
     <div class="container" style="text-align: center;">
         <h1>🌌 International site</h1>
         <br>
         <img src="https://photovegh.synology.me/img/dragon_ok.jpg" alt="" style="width: 9%;">
         <br><br>
-
         <button class="btn btn-primary" data-target="#loginModal" data-toggle="modal" onclick="mixedLogin()">Mixed
-            Login</button>
-
-        <button class="btn btn-outline-danger" onclick="fetchAndRenderPersons()">GET</button>
+            Subscription POST</button>
+        <button class="btn btn-outline-danger" onclick="fetchAndRenderPersons()">GET data</button>
         <br><br>
-
         <button class="btn btn-outline-danger" onclick="veghSoft()">Return</button>
-
-        <p style="margin-top: 2%; color: royalblue;">This responsive page:</p>
-        <p>Web fronend site - nethely.hu</p>
-        <p>Web backend site routing - Didigital Ocean Virtual Privat Server with NodeJS + Express (Frankfurt)</p>
-        <p>Database - Atlas MongoDB (Worldwide)</p>
-        <p>Logo - Synology NAS (home)</p>
-        <p>Image - 500px (Toronto, Ontario, Kanada)</p>
+        <h6 style="margin-top: 2%; color: royalblue;">This responsive page:</h6>
+        <h6>Web fronend site - nethely.hu</h6>
+        <h6>Web backend site routing - Didigital Ocean Virtual Privat Server with NodeJS + Express (Frankfurt)</h6>
+        <h6>Database - Atlas MongoDB (Worldwide)</h6>
+        <h6>Logo - Synology NAS (home)</h6>
+        <h6>Image - 500px (Toronto, Ontario, Kanada)</h6>
         <img src='https://drscdn.500px.org/photo/1039782829/m%3D900/v2?sig=9b05f3692b10f71c8af2d9e34079598794f7318011de2e093ba88ee0a7bc4c73'
             alt="Portrait_resize_sq by Végh Tibor on 500px.com"
             style="width: 9%;  border: 1px solid #ddd;  border-radius: 4px; padding: 5px;">
     </div>
-
-    <!-- <div id="personsData"></div> -->
     <div class="container">
         <h2>ATLAS MongoDB Database test</h2>
         <p>The following data is for testing purposes only!</p>
         <table class="table table-striped">
             <thead>
-
                 <tr>
                     <th>User name</th>
                     <th>E-mail</th>
@@ -54,21 +46,10 @@
                     <th>History</th>
                 </tr>
             </thead>
-
             <tbody id="personsData">
-                <!-- 
-                <tr>
-                    <td>something</td>
-                    <td>something</td>
-                    <td>something</td>
-                </tr>
- -->
-
             </tbody>
         </table>
     </div>
-
-
     <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
         <div class="modal-dialog">
@@ -97,11 +78,9 @@
                         <input type="history" id="history" placeholder="Histrory" class="form-control"
                             value="This is history 01">
                     </div>
-
                 </div>
                 <div class="modal-footer">
-                    <!-- <button class="btn btn-primary" data-dismiss="modal" onclick="modalLogin()">Login</button> -->
-                    <button class="btn btn-primary" data-dismiss="modal" onclick="sendMongoDB()">Login</button>
+                    <button class="btn btn-primary" data-dismiss="modal" onclick="sendMongoDB()">Subscription</button>
                 </div>
             </div>
         </div>
