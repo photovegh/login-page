@@ -6,6 +6,8 @@ const fs = require("fs");
 const path = require("path");
 const app = express();
 
+const ObjectID = require("mongodb").ObjectID;
+
 path;
 app.use(bodyParser.json());
 app.use(express.static("public"));
@@ -22,7 +24,6 @@ app.get("/", (req, res) => {
 //--------------------------------------------------------------------
 app.get("/person", (req, res) => {
     const client = getClient();
-
     client.connect(async (err) => {
         const collection = client.db("login_page").collection("person");
         // perform actions on the collection object
@@ -36,31 +37,50 @@ app.get("/person", (req, res) => {
         );
     });
 });
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//[[[[ CREATE.R.U.D. */* RUDC */*egyedi azonosító !!!!!!! ]]]]
+app.post("/person", bodyParser.json(), (req, res) => {
+    console.log(req.body.userName);
+    console.log(req.body.email);
+    console.log(req.body.message);
+    console.log(req.body.history);
 
-app.post("/person", bodyParser.json, (req, res) => {
     const newPerson = {
-        userName: "Jane Doe",
-        email: "Jane@test.com",
-        message: "Hmmm",
-        history: "harem",
+        userName: req.body.userName,
+        email: req.body.email,
+        message: req.body.message,
+        history: req.body.history,
     };
-
-    console.log("sendmongodb 3");
+    console.log(req.body.userName);
+    console.log(req.body.email);
+    console.log("***********sendmongodb 3**********");
+    console.log(newPerson);
     //const newPerson = req.json;
     const client = getClient();
+    console.log("-------------sendmongodb 4------------");
     client.connect(async (err) => {
+        console.log("-------------ERRORRRRR------------");
         const collection = client.db("login_page").collection("person");
-        // perform actions on the collection object
-        //const person = await collection.find().toArray();
-        const person = await collection.insertOne("newPerson");
-        console.log("*** BACKEND *** newPerson");
-        //res.json(newPerson);
-        res.send(newPerson);
-        console.log("***  newPerson is OK !!!***");
-        client.close();
+        const result = await collection.insertOne(newPerson);
+        if (result.insertedCount) {
+            res.send({ error: "nem lehet insertálni, azaz creálni" });
+            console.log(result.insertedCount);
+            return;
+        }
     });
-});
 
+    console.log("*** BACKEND *** newPerson");
+    //res.json(newPerson);
+    res.send(newPerson);
+    console.log("***  newPerson is OK !!!***");
+    client.close();
+    console.log("***  !!! END RUNNNNN !!!***");
+});
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
 function getClient() {
     const { MongoClient } = require("mongodb");
     const uri =

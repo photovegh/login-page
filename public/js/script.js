@@ -18,6 +18,10 @@ async function sendMongoDB() {
     console.log("sendmongodb 1");
 
     //eddig jutottam el !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    const userName = document.getElementById("userName").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const history = document.getElementById("history").value;
 
     await fetch("/person", {
         method: "POST",
@@ -25,13 +29,14 @@ async function sendMongoDB() {
             "Content-type": "application/json",
         },
         body: JSON.stringify({
-            userName: "Jane Doe",
-            email: "Jane@test.com",
-            message: "Hmmm",
-            history: "harem",
+            userName: userName,
+            email: email,
+            message: message,
+            history: history,
         }),
     });
     console.log("sendmongodb 2");
+    fetchAndRenderPersons();
 }
 
 //window.onload = fetchAndRenderPersons();
@@ -82,7 +87,7 @@ const personGet = () => {
 };
 //console.log(person);
 
-const modalLogin = () => {
+/* const modalLogin = () => {
     console.log("BUTTON modalLogin is ready *** modal OK + MongoDB ***");
     let mLogin = document.getElementById("userName").value;
     console.log(mLogin);
@@ -92,7 +97,7 @@ const modalLogin = () => {
     console.log(mMessage);
     let mHistory = document.getElementById("history").value;
     console.log(mHistory);
-};
+}; */
 
 const mixedLogin = () => {
     console.log("BUTTON mixedLogin is ready !!! js FOLDER !!!");
